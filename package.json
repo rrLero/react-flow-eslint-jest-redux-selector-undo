@@ -1,0 +1,69 @@
+{
+  "scripts": {
+    "dev": "cross-env API_KEY=ugayCTOgIaGrykFFeRCkmLBHn7eQ37Al webpack-dev-server  --mode development --config config/webpack.config.dev.js",
+    "build": "rimraf dist && cross-env API_KEY=ugayCTOgIaGrykFFeRCkmLBHn7eQ37Al webpack --mode production --config config/webpack.config.js",
+    "prod": "rimraf dist && cross-env API_KEY=ugayCTOgIaGrykFFeRCkmLBHn7eQ37Al webpack --mode production  --config config/webpack.config.prod.js",
+    "flow-typed": "rimraf flow-typed/npm && flow-typed install",
+    "check": "npm run check:flow && npm run check:lint && npm run check:test",
+    "check:flow": "flow check",
+    "check:lint": "eslint .",
+    "check:test": "jest",
+    "start": "npm run prod && node ./app.js"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-loader": "^7.1.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "browser-sync": "^2.23.6",
+    "browser-sync-webpack-plugin": "^2.0.1",
+    "compression-webpack-plugin": "^1.1.10",
+    "copy-webpack-plugin": "^4.4.2",
+    "cross-env": "^5.1.3",
+    "css-loader": "^0.28.10",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.18.1",
+    "eslint-config-fbjs-opensource": "^1.0.0",
+    "eslint-plugin-flowtype": "^2.46.1",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-unicorn": "^4.0.2",
+    "express": "^4.16.2",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^1.1.10",
+    "flow-bin": "^0.66.0",
+    "flow-typed": "^2.3.0",
+    "html-webpack-plugin": "github:webpack-contrib/html-webpack-plugin",
+    "jest": "^22.4.2",
+    "less": "^3.0.1",
+    "less-loader": "^4.0.6",
+    "rimraf": "^2.6.2",
+    "style-loader": "^0.20.2",
+    "uglifyjs-webpack-plugin": "^1.2.2",
+    "webpack": "^4.0.1",
+    "webpack-cli": "2.0.9",
+    "webpack-dev-server": "^3.1.0",
+    "webpack-merge": "^4.1.2"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./config/jest/test-framework-setup.js",
+    "moduleNameMapper": {
+      "\\.(less)$": "<rootDir>/config/jest/dumb-mock.js"
+    }
+  }
+}
