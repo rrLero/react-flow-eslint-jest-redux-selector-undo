@@ -9,7 +9,8 @@ export type ApiAction = $Subtype<{
     [CALL_API]: {|
         types: [string, string, string],
         endpoint: () => Promise<*>
-    |}
+    |},
+    payload?: {}
 }>;
 
 export type ApiDispatch = (ApiAction) => Promise<*>;

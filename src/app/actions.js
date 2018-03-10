@@ -2,12 +2,12 @@
 import {CALL_API, get} from '../api/index';
 
 import {
-    GET_BOXES_REQUEST,
-    GET_BOXES_SUCCESS,
-    GET_BOXES_FAILURE
+    GET_BOXES_REQUEST, GET_BOXES_SUCCESS, GET_BOXES_FAILURE,
+    ADD_BOX
 } from './constants';
 
-import type {ApiDispatcher} from '../store/typedef';
+import type {ApiDispatcher, Dispatcher} from '../store/typedef';
+import type {BoxType} from './typedef';
 
 export const getBoxes = (): ApiDispatcher => (dispatch, getState) => {
     return dispatch({
@@ -18,6 +18,15 @@ export const getBoxes = (): ApiDispatcher => (dispatch, getState) => {
                 GET_BOXES_FAILURE
             ],
             endpoint: () => get('boxes')
+        },
+        payload: {
+            test: 'test'
         }
     });
 };
+
+export const addBox = (box: BoxType): Dispatcher => (dispatch, getState) => dispatch({
+    type: ADD_BOX,
+    box
+});
+
