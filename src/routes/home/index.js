@@ -2,18 +2,15 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
+import {compose} from 'redux';
 import {ActionCreators as UndoActionCreators} from 'redux-undo';
+import {withStyles} from 'material-ui/styles';
 import {getBoxes, addBox} from '../../app/actions';
 import {getFilteredBoxes} from '../../selectors';
 import type {BoxType} from '../../app/typedef';
 
-import Test from '../../components/test1';
-import Test2 from '../../components/test2';
-import Test3 from '../../components/test3';
-import Test4 from '../../components/test4';
-import Test5 from '../../components/test5';
-import Test6 from '../../components/test6';
-import Test7 from '../../components/test7';
+import Test2 from '../../components/test-selector-undo/index';
+import Slide from '../../components/test-material-slide/index';
 
 type OwnProps = {
 };
@@ -47,19 +44,13 @@ class Home extends React.Component<Props> {
                 <Test2
                     {...this.props}
                 />
-                <Test/>
-                <Test3/>
-                <Test4/>
-                <Test5/>
-                <Test6/>
-                <Test7/>
+                <Slide/>
             </div>
-
         );
     }
 }
 
-export default connect(state => ({
+export default compose(connect(state => ({
     boxes: getFilteredBoxes(state.firstState.present.boxes, 'sent'),
     firstState: state.firstState.firstState,
     canUndo: state.firstState.past.length > 0,
@@ -69,5 +60,5 @@ export default connect(state => ({
     addBox,
     onUndo: UndoActionCreators.undo,
     onRedo: UndoActionCreators.redo
-})(Home);
+}), withStyles())(Home);
 

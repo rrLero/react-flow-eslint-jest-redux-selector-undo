@@ -5,6 +5,8 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {BrowserRouter, Switch, Route, NavLink} from 'react-router-dom';
 
+import withRoot from '../with-root';
+
 import Home from '../routes/home';
 import store from '../store';
 
@@ -46,4 +48,4 @@ class App extends React.Component<Props> {
     }
 }
 
-export default App;
+export default withRoot(App);

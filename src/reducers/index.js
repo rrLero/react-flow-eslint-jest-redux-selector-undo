@@ -1,14 +1,14 @@
 // @flow
 
 import {combineReducers} from 'redux';
-import firstState from '../app/reducers';
+import startState from '../app/reducers';
 
-import type {State as FirstState} from '../app/typedef';
+import type {State as StartState} from '../app/typedef';
 
 export type State = {|
-    firstState: FirstState
+    startState: StartState
 |};
 
 export default combineReducers({
-    firstState
+    startState
 });

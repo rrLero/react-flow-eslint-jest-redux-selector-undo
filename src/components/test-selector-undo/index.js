@@ -1,9 +1,11 @@
 // @flow
 
 import React, {Fragment} from 'react';
-import type {BoxType} from '../app/typedef';
+import {withStyles} from 'material-ui/styles';
+import type {BoxType} from '../../app/typedef';
+import styles from './styles';
 
-type Props = {
+type OwnProps = {
     firstState: string,
     boxes: Array<BoxType>,
     addBox: (BoxType) => void,
@@ -13,12 +15,20 @@ type Props = {
     canUndo: boolean
 };
 
+type WithProps = {
+    classes: $Call<typeof styles>
+};
+
+type Props = OwnProps & WithProps;
+
 class Test2 extends React.Component<Props> {
 
     render() {
+        const {classes} = this.props;
+
         return (
             <Fragment>
-                <ul>
+                <ul className={classes.mineRule1}>
                     <h1>{this.props.firstState}</h1>
                     {this.props.boxes.map(box => (
                         <li key={box.id}>
@@ -48,4 +58,4 @@ class Test2 extends React.Component<Props> {
     }
 }
 
-export default Test2;
+export default withStyles(styles)(Test2);
