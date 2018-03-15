@@ -3,11 +3,16 @@
 import undoable, {distinctState} from 'redux-undo';
 import {GET_BOXES_REQUEST, GET_BOXES_SUCCESS, GET_BOXES_FAILURE, ADD_BOX} from './constants';
 
-import type {State, BoxType} from './typedef';
+import type {BoxType} from './typedef';
 
-const DEFAULT_STATE: State = {
+const DEFAULT_STATE = {
     firstState: 'HelloWorld',
     boxes: []
+};
+
+export type State = {
+    firstState: string,
+    boxes: Array<BoxType>
 };
 
 type Action =

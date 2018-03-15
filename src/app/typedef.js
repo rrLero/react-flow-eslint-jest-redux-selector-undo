@@ -5,9 +5,3 @@ export type BoxType = {
     name: string,
     icon: string
 };
-
-export type State = {
-    boxes: Array<BoxType>,
-    firstState: string
-};
-

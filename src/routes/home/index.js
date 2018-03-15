@@ -51,10 +51,10 @@ class Home extends React.Component<Props> {
 }
 
 export default compose(connect(state => ({
-    boxes: getFilteredBoxes(state.firstState.present.boxes, 'sent'),
-    firstState: state.firstState.firstState,
-    canUndo: state.firstState.past.length > 0,
-    canRedo: state.firstState.future.length > 0
+    boxes: getFilteredBoxes(state.startState.present.boxes, 'sent'),
+    firstState: state.startState.firstState,
+    canUndo: state.startState.past.length > 0,
+    canRedo: state.startState.future.length > 0
 }), {
     getBoxes,
     addBox,

@@ -1,6 +1,5 @@
 // @flow
 
-import './main.less';
 import React from 'react';
 import {Provider} from 'react-redux';
 import {BrowserRouter, Switch, Route, NavLink} from 'react-router-dom';
